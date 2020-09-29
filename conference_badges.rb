@@ -6,19 +6,16 @@ def badge_maker(name)
   "Hello, my name is #{name}."
 end
 
-def batch_badge_creator(attendees)
-  badge_names = []
-  attendees.each do |person|
-    badge_names << badge_maker(person)
-  end
-  badge_names
+def batch_badge_creator(names)
+  badge_message = []
+  names.each  {|person| badge_message << badge_maker(person)}
+  badge_message
 end
 
 def assign_rooms(attendees)
   room_assignments = []
-  attendees.each_with_index do |person, index|
-    room_assignments << "Hello, #{person}! You'll be assigned to room #{index + 1}!"
-  end
+  attendees.each_with_index {|person, index|
+    room_assignments << "Hello, #{person}! You'll be assigned to room #{index + 1}!"}
   room_assignments
 end
 
